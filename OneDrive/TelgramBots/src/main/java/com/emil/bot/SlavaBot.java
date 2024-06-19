@@ -44,12 +44,12 @@ public class SlavaBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "slava_zxz_marketing_bot";
+        return BotData.Companion.getUsername();
     }
 
     @Override
     public String getBotToken() {
-        return "7459568048:AAFBip3D06TWP2wDKJTcrfj373IenxhhPWo";
+        return BotData.Companion.getToken();
     }
 
     @Override
