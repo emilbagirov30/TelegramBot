@@ -20,8 +20,6 @@ public class SlavaBot extends TelegramLongPollingBot {
 
     private final Map<Long, String> userStages = new HashMap<>();
     private final Map<Long, ClientData> clientsData = new HashMap<>();
-  private final long adminChatId = 623349419L;
-  private final long developerChatId = 1638819245L;
     private static final long BLOCK_DURATION = 30 * 60 * 1000;
     private static final int START_LIMIT = 3;
     private static final long TIME_LIMIT = 5 * 60 * 1000;
@@ -346,15 +344,11 @@ public class SlavaBot extends TelegramLongPollingBot {
         }
 
         SendMessage messageAdmin = new SendMessage();
-        messageAdmin.setChatId(adminChatId);
+        messageAdmin.setChatId(BotData.Companion.getAdminChatId());
         messageAdmin.setText(report);
-        SendMessage messageDeveloper = new SendMessage();
-        messageDeveloper.setChatId(developerChatId);
-        messageDeveloper.setText(report);
 
         try {
             execute(messageAdmin);
-            execute(messageDeveloper);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
